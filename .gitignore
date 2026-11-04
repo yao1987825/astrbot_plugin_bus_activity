@@ -7,3 +7,8 @@ _re_cl/
 _re_src/
 _re_src_src/
 _tool/
+
+# WorkBuddy AI 本地数据与 skill 打包产物，不进仓库
+.workbuddy-ai/
+astrbot-bus-activity.zip
+astrbot-bus-activity/

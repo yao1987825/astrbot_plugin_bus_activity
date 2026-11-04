@@ -434,7 +434,7 @@ assert [query._cn_num(x) for x in ("一", "九", "十", "十二", "二十三", "
 # 「没有数据」的说法不能撞上 main.py 的 FALSE_CLAIM，否则整句被吞、用户收不到
 for _bad in ("巩义市这座城暂时没有公交数据，掌上和车来了都没覆盖",
              "这条线路查不了"):
-    _ok = not re.search(r"数据源|只接了|只有玉林|玉林的接口|"
+    _ok = not re.search(r"数据源|只接了|只有郴州|郴州的接口|"
                         r"查不了.{0,8}(公交|线路)|(公交|线路).{0,8}查不了", _bad)
     assert _ok == (not _bad.startswith("这条")), _bad
 
@@ -725,8 +725,8 @@ if "--live" in sys.argv:
     import importlib
 
     importlib.reload(query)  # 拿掉上面被替换掉的假城市表
-    for msg in ["玉林 G02 路有没有车", "香港 1 路还有几站", "大连 2 路到哪了",
-                "玉林 从十字街到火车站坐什么车", "南宁 我在金湖广场，16路还有几站",
-                "南宁 金湖广场有几路车", "容县 11 路有车吗", "玉林 6 路夜班还有几站"]:
+    for msg in ["郴州 2 路有没有车", "香港 1 路还有几站", "大连 2 路到哪了",
+                "郴州 从五岭广场到火车站坐什么车", "南宁 我在金湖广场，16路还有几站",
+                "南宁 金湖广场有几路车", "资兴 1 路有车吗", "桂阳 2 路有车吗"]:
         print("\n问:", msg)
-        print(query.answer(msg, "玉林市"))
+        print(query.answer(msg, "郴州市"))
